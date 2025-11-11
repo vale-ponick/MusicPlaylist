@@ -9,11 +9,26 @@ import Foundation
 
 print("Task: 'Music Playlist'.")
 
+enum MusicGenre: String, CaseIterable {
+    case pop = "Pop"
+    case rock = "Rock"
+    case jazz = "Jazz"
+    
+    // Можно добавлять методы!
+    var emoji: String {
+        switch self {
+        case .pop: return "🎵"
+        case .rock: return "🎸"
+        case .jazz: return "🎷"
+        }
+    }
+}
+
 struct Song: Equatable {
     var title: String
     let artist: String
     var duration: Double // продолжительность in seconds
-    let genre: String
+    let genre: MusicGenre
     var isPlaying: Bool
 }
 
